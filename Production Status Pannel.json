@@ -3959,6 +3959,794 @@
       "timeShift": null,
       "title": "app505",
       "type": "blackmirror1-statusbygroup-panel"
+    },
+    {
+      "colorMode": "Panel",
+      "colors": {
+        "crit": "rgba(245, 54, 54, 0.9)",
+        "disable": "rgba(128, 128, 128, 0.9)",
+        "ok": "rgba(50, 128, 45, 0.9)",
+        "warn": "rgba(237, 129, 40, 0.9)"
+      },
+      "cornerRadius": 0,
+      "datasource": "QTM Zabbix All Hosts",
+      "description": "RDP (logs, megabanner, publisher, publisher-admin, toolbar-nginx)\nINT: 192.168.101.27\nIPMI: 192.168.200.121",
+      "displayName": "",
+      "flipCard": false,
+      "flipTime": 5,
+      "fontFormat": "Regular",
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 10,
+        "y": 0
+      },
+      "groupname": "",
+      "id": 19,
+      "isAutoScrollOnOverflow": false,
+      "isGrayOnNoData": false,
+      "isHideAlertsOnDisable": false,
+      "isIgnoreOKColors": false,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Advanced",
+          "url": "http://grafana.int.qt.media/d/oenXovvGz/drill-downinig-vars-selecting?orgId=1&var-group=Linux%20Production&var-host=app506.int.qt.media&var-app=All&var-trigger=All"
+        }
+      ],
+      "options": {},
+      "statusGroups": [
+        {
+          "alias": "",
+          "name": "Status Checks",
+          "url": "http://grafana.int.qt.media/d/000000012/zabbix-host-status?orgId=1&var-group=Linux%20Production&var-host=app506.int.qt.media"
+        },
+        {
+          "alias": "",
+          "name": "CPU",
+          "url": "http://grafana.int.qt.media/d/f8AV45vGk/var-graf?orgId=1&var-group=Linux%20Production&var-host=app506.int.qt.media&var-app=CPU"
+        },
+        {
+          "alias": "",
+          "name": "DISK",
+          "url": "http://grafana.int.qt.media/d/f8AV45vGk/var-graf?orgId=1&var-group=Linux%20Production&var-host=app506.int.qt.media&var-app=Filesystems"
+        },
+        {
+          "alias": "",
+          "name": "MEM",
+          "url": "http://grafana.int.qt.media/d/f8AV45vGk/var-graf?orgId=1&var-group=Linux%20Production&var-host=app506.int.qt.media&var-app=Memory"
+        },
+        {
+          "alias": "",
+          "name": "NET",
+          "url": "http://grafana.int.qt.media/d/f8AV45vGk/var-graf?orgId=1&var-group=Linux%20Production&var-host=app506.int.qt.media&var-app=Network%20interfaces"
+        },
+        {
+          "alias": "",
+          "name": "SYS",
+          "url": ""
+        }
+      ],
+      "targets": [
+        {
+          "aggregation": "Last",
+          "alias": "cpu-load",
+          "application": {
+            "filter": "CPU"
+          },
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "cpu-load"
+              ],
+              "text": "setAlias(cpu-load)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "CPU",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "Processor load (5 min average per core)"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "percent",
+          "valueHandler": "Number Threshold"
+        },
+        {
+          "aggregation": "Last",
+          "alias": "cpu-sys",
+          "application": {
+            "filter": "CPU"
+          },
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "cpu-sys"
+              ],
+              "text": "setAlias(cpu-sys)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "CPU",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "CPU system time"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "percent",
+          "valueHandler": "Number Threshold"
+        },
+        {
+          "aggregation": "Last",
+          "alias": "cpu-user",
+          "application": {
+            "filter": "CPU"
+          },
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "cpu-user"
+              ],
+              "text": "setAlias(cpu-user)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "CPU",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "CPU user time"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "C",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "percent",
+          "valueHandler": "Number Threshold"
+        },
+        {
+          "aggregation": "Last",
+          "alias": "cpu-idle",
+          "application": {
+            "filter": "CPU"
+          },
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "cpuu-idle"
+              ],
+              "text": "setAlias(cpuu-idle)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "CPU",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "CPU idle time"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "D",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "none",
+          "valueHandler": "Number Threshold"
+        },
+        {
+          "aggregation": "Last",
+          "alias": "disk-free",
+          "application": {
+            "filter": "Filesystems"
+          },
+          "crit": 10,
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "disk-free"
+              ],
+              "text": "setAlias(disk-free)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "Status Checks",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "Free disk space on / (percentage)"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "E",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "percent",
+          "valueHandler": "Number Threshold",
+          "warn": 20
+        },
+        {
+          "aggregation": "Last",
+          "alias": "ipmi",
+          "application": {
+            "filter": "IPMI Ping"
+          },
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "ipmi"
+              ],
+              "text": "setAlias(ipmi)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "Status Checks",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "IPMI ping"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "F",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "none",
+          "valueHandler": "Number Threshold"
+        },
+        {
+          "aggregation": "Last",
+          "alias": "mem-available",
+          "application": {
+            "filter": "Memory"
+          },
+          "crit": 10,
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "mem-available"
+              ],
+              "text": "setAlias(mem-available)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "Status Checks",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "Available memory"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "G",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "bytes",
+          "valueHandler": "Number Threshold",
+          "warn": 12
+        },
+        {
+          "aggregation": "Last",
+          "alias": "mem-total",
+          "application": {
+            "filter": "Memory"
+          },
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "mem-total"
+              ],
+              "text": "setAlias(mem-total)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "MEM",
+            "url": "http://grafana.int.qt.media/d/f8AV45vGk/var-graf?orgId=1&var-group=Linux%20Production&var-host=app501.int.qt.media&var-app=Memory"
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "Total memory"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "H",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "bytes",
+          "valueHandler": "Number Threshold"
+        },
+        {
+          "aggregation": "Last",
+          "alias": "net-in-eno1",
+          "application": {
+            "filter": "Network interfaces"
+          },
+          "crit": 0,
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "net-in-eno1"
+              ],
+              "text": "setAlias(net-in-eno1)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "Status Checks",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "Incoming network traffic on eno1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "I",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "decbits",
+          "valueHandler": "Number Threshold",
+          "warn": 0.1
+        },
+        {
+          "aggregation": "Last",
+          "alias": "net-out-eno1",
+          "application": {
+            "filter": "Network interfaces"
+          },
+          "crit": 0,
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "net-out-eno1"
+              ],
+              "text": "setAlias(net-out-eno1)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "filter": "/.*/",
+            "name": "Status Checks",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "Outgoing network traffic on eno1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "J",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "decbits",
+          "valueHandler": "Number Threshold",
+          "warn": 0.1
+        },
+        {
+          "aggregation": "Last",
+          "alias": "ssh",
+          "application": {
+            "filter": "SSH service"
+          },
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "ssh"
+              ],
+              "text": "setAlias(ssh)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "name": "SYS",
+            "url": ""
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "SSH service is running"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "K",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "none",
+          "valueHandler": "Number Threshold"
+        },
+        {
+          "aggregation": "Last",
+          "alias": "ping",
+          "application": {
+            "filter": "Zabbix agent"
+          },
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "When Alias Displayed",
+          "functions": [
+            {
+              "def": {
+                "name": "setAlias",
+                "category": "Alias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ],
+                "defaultParams": []
+              },
+              "params": [
+                "ping"
+              ],
+              "text": "setAlias(ping)"
+            }
+          ],
+          "group": {
+            "alias": "",
+            "name": "Status Checks",
+            "url": "http://grafana.int.qt.media/d/000000012/zabbix-host-status?orgId=1&var-group=Linux%20Production&var-host=app501.int.qt.media"
+          },
+          "host": {
+            "filter": "app506.int.qt.media"
+          },
+          "item": {
+            "filter": "Zabbix agent ping"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "L",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "units": "none",
+          "valueHandler": "Number Threshold"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "app506",
+      "type": "blackmirror1-statusbygroup-panel"
     }
   ],
   "schemaVersion": 19,
@@ -4042,5 +4830,5 @@
   "timezone": "",
   "title": "Production Status Pannel",
   "uid": "XubKI5vMz",
-  "version": 8
+  "version": 9
 }
